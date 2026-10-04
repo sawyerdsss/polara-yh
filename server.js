@@ -85,6 +85,7 @@ app.use("/api/chat", chatRouter());
 app.use("/api", rateLimit({ windowMs: 60e3, max: 300 }));
 app.use("/api/music", musicRouter());
 app.use("/api/presence", presenceRouter());
+app.get("/healthz", (req, res) => res.type("text/plain").send("ok"));
 
 // Google Fonts catalog for the font picker (via fontsource's public metadata), cached for a day
 let fonts = null;
